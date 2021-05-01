@@ -36,26 +36,33 @@ ext {
 
     ]
     appDependencies = [
+            // Build system
             gradle : "com.android.tools.build:gradle:${versions.gradle}",
 
+            // Compiler
             kotlinPlugin : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
             kotlin       : "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
 
+            // Framework
             ktx       : "androidx.core:core-ktx:${versions.ktx}",
             appcompat : "androidx.appcompat:appcompat:${versions.appcompat}",
 
+            // UI
             constraint : "androidx.constraintlayout:constraintlayout:${versions.constriant}",
             material   : "com.google.android.material:material:${versions.material}",
 
+            // Navigation
             navigationFragment : "androidx.navigation:navigation-fragment-ktx:${versions.navigation}",
             navigationUI       : "androidx.navigation:navigation-ui-ktx:${versions.navigation}",
             navigationDynamic  : "androidx.navigation:navigation-dynamic-features-fragment:${versions.navigation}",
 
+            // DI
             koin           : "io.insert-koin:koin-core:${versions.koin}",
             koinAndroid    : "io.insert-koin:koin-android:${versions.koin}",
             koinAndroidExt : "io.insert-koin:koin-android-ext:${versions.koin}",
             koinTest       : "io.insert-koin:koin-junit4:${versions.koin}",
 
+            // Testing
             junit    : "junit:junit:${versions.junit}",
             junitExt : "androidx.test.ext:junit:${versions.junitExt}",
             espresso : "androidx.test.espresso:espresso-core:${versions.espresso}",

@@ -20,10 +20,4 @@ dependencies {
 
     implementation appDependencies.navigationFragment
     implementation appDependencies.navigationUI
-
-    implementation appDependencies.ktx
-    implementation appDependencies.appcompat
-
-    implementation appDependencies.material
-    implementation appDependencies.constraint
 }
