@@ -17,4 +17,13 @@ dependencies {
     implementation project (":feature:common")
     implementation project (":repository")
     implementation project (":interactor")
+
+    implementation appDependencies.navigationFragment
+    implementation appDependencies.navigationUI
+
+    implementation appDependencies.ktx
+    implementation appDependencies.appcompat
+
+    implementation appDependencies.material
+    implementation appDependencies.constraint
 }
