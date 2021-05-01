@@ -1,0 +1,77 @@
+
+apply from: 'dependencies.gradle'
+
+buildscript {
+    ext.kotlin_version = "1.4.31"
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.2.0-rc01"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+subprojects {
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        sourceCompatibility = versions.java
+        targetCompatibility = versions.java
+
+        kotlinOptions {
+            jvmTarget = versions.jvmTarget
+        }
+
+        dependencies {
+            implementation appDependencies.kotlin
+            implementation appDependencies.koin
+        }
+    }
+
+    plugins.withType(com.android.build.gradle.BasePlugin) {
+        android {
+            compileSdkVersion versions.compileSdk
+            buildToolsVersion versions.buildTools
+
+            defaultConfig {
+                minSdkVersion versions.minSdk
+                targetSdkVersion versions.targetSdk
+
+                testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+            }
+
+            buildTypes {
+                release {
+                    minifyEnabled true
+                    debuggable false
+                    proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                }
+
+                debug {
+                    minifyEnabled false
+                    debuggable true
+                }
+            }
+        }
+
+        dependencies {
+            implementation appDependencies.koinAndroid
+            implementation appDependencies.koinAndroidExt
+
+            testImplementation appDependencies.junit
+            androidTestImplementation appDependencies.junitExt
+        }
+    }
+}

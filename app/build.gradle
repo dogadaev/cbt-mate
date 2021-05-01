@@ -1,0 +1,20 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    defaultConfig {
+        applicationId constants.applicationId
+
+        versionCode constants.versionCode
+        versionName constants.versionName
+    }
+}
+
+dependencies {
+    implementation project (":entity")
+    implementation project (":feature:common")
+    implementation project (":repository")
+    implementation project (":interactor")
+}
