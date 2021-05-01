@@ -1,5 +1,8 @@
 buildscript {
     apply from: 'dependencies.gradle'
+    ext {
+        kotlin_version = '1.4.31'
+    }
 
     repositories {
         google()
@@ -47,6 +50,10 @@ subprojects {
                 targetSdkVersion versions.targetSdk
 
                 testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+            }
+
+            buildFeatures {
+                viewBinding true
             }
 
             buildTypes {
