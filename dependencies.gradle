@@ -9,6 +9,8 @@ ext {
     ]
 
     versions = [
+            gradle: "4.2.0-rc01",
+
             minSdk     : 21,
             targetSdk  : 30,
             compileSdk : 30,
@@ -31,6 +33,8 @@ ext {
     ]
 
     appDependencies = [
+            gradle : "com.android.tools.build:gradle:${versions.gradle}",
+
             kotlinPlugin : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
             kotlin       : "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
 
