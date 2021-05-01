@@ -14,9 +14,11 @@ android {
 
 dependencies {
     implementation project (":entity")
-    implementation project (":feature:common")
     implementation project (":repository")
     implementation project (":interactor")
+    implementation project (":presentation")
+    implementation project (":feature:common")
+    implementation project (":feature:home")
 
     implementation appDependencies.navigationFragment
     implementation appDependencies.navigationUI
