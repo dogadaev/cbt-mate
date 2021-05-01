@@ -6,5 +6,7 @@ plugins {
 dependencies {
     implementation appDependencies.ktx
     implementation appDependencies.appcompat
+
     implementation appDependencies.material
+    implementation appDependencies.constraint
 }
