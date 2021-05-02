@@ -14,7 +14,6 @@ android {
 
 dependencies {
     implementation project (":entity")
-    implementation project (":repository")
     implementation project (":interactor")
     implementation project (":presentation")
     implementation project (":feature:common")

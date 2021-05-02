@@ -31,6 +31,8 @@ ext {
             material   : "1.3.0",
             constriant : "2.0.4",
 
+            room : "2.3.0",
+
             junit    : "4.13.2",
             junitExt : "1.1.2",
             espresso : "3.3.0",
@@ -58,8 +60,16 @@ ext {
             navigationDynamic  : "androidx.navigation:navigation-dynamic-features-fragment:${versions.navigation}",
 
             // Lifecycle
-            viewmodel: "androidx.lifecycle:lifecycle-viewmodel:${versions.lifecycle}",
-            viewmodelKtx: "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle}",
+            viewmodel: "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle}",
+            lifecycleRuntime: "androidx.lifecycle:lifecycle-runtime:${versions.lifecycle}",
+            lifecycleCommon: "androidx.lifecycle:lifecycle-common-java8:${versions.lifecycle}",
+            livedata: "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle}",
+
+            // Database
+            roomRuntime  : "androidx.room:room-runtime:${versions.room}",
+            roomCompiler : "androidx.room:room-compiler:${versions.room}",
+            roomKtx      : "androidx.room:room-ktx:${versions.room}",
+            roomTest     : "androidx.room:room-testing:${versions.room}",
 
             // DI
             koin           : "io.insert-koin:koin-core:${versions.koin}",

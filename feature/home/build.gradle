@@ -5,6 +5,8 @@ plugins {
 
 
 dependencies {
+    implementation project (":entity")
+    implementation project (":feature:common")
     implementation project (":presentation")
 
     implementation appDependencies.ktx
