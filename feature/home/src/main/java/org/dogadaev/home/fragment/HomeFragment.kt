@@ -5,19 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import org.dogadaev.common.extensions.viewBinding
+import org.dogadaev.home.R
 import org.dogadaev.home.databinding.FragmentHomeLayoutBinding
+import org.dogadaev.home.presentation.HomeViewInteractor
+import org.dogadaev.presentation.viewmodel.HomeViewModel
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HomeFragment : Fragment() {
+class HomeFragment: Fragment(R.layout.fragment_home_layout) {
 
-    private var binding: FragmentHomeLayoutBinding? = null
+    private val viewModel: HomeViewModel by viewModel()
+    private val binding by viewBinding(FragmentHomeLayoutBinding::bind)
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentHomeLayoutBinding.inflate(inflater)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        return binding?.root
+        HomeViewInteractor(this, binding, viewModel)
     }
 }

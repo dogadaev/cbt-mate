@@ -5,8 +5,9 @@ plugins {
 }
 
 dependencies {
+    implementation project (":entity")
     implementation project (":interactor")
 
     implementation appDependencies.viewmodel
-    implementation appDependencies.viewmodelKtx
+    implementation appDependencies.livedata
 }

@@ -7,6 +7,11 @@ dependencies {
     implementation appDependencies.ktx
     implementation appDependencies.appcompat
 
+    implementation appDependencies.lifecycleCommon
+    implementation appDependencies.lifecycleRuntime
+    implementation appDependencies.viewmodel
+    implementation appDependencies.livedata
+
     implementation appDependencies.material
     implementation appDependencies.constraint
 }

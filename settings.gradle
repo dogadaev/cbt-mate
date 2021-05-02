@@ -1,8 +1,8 @@
 rootProject.name = "DailyBuch"
 include ':app'
 include ':feature:common'
-include ':repository'
 include ':interactor'
 include ':entity'
 include ':feature:home'
 include ':presentation'
+include ':repository:database'
