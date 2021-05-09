@@ -4,5 +4,5 @@ import org.dogadaev.interactor.usecase.HomeUseCase
 import org.koin.dsl.module
 
 val interactorModule = module {
-    factory { HomeUseCase() }
+    factory { HomeUseCase(get()) }
 }

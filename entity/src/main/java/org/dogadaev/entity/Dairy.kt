@@ -1,11 +1,10 @@
 package org.dogadaev.entity
 
 data class Dairy(
-    val id: Int,
+    val id: String,
     val title: String,
     val description: String,
     val creationDate: String,
-    val entries: List<Entry>
 ) {
     data class Entry(
         val timestamp: String,
