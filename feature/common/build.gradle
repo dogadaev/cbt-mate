@@ -4,14 +4,14 @@ plugins {
 }
 
 dependencies {
-    implementation appDependencies.ktx
-    implementation appDependencies.appcompat
+    api appDependencies.ktx
+    api appDependencies.appcompat
+
+    api appDependencies.material
+    api appDependencies.constraint
 
     implementation appDependencies.lifecycleCommon
     implementation appDependencies.lifecycleRuntime
     implementation appDependencies.viewmodel
     implementation appDependencies.livedata
-
-    implementation appDependencies.material
-    implementation appDependencies.constraint
 }

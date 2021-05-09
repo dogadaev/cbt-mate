@@ -3,17 +3,9 @@ plugins {
     id 'kotlin-android'
 }
 
-
 dependencies {
     implementation project (":entity")
-    implementation project (":feature:common")
     implementation project (":presentation")
-
-    implementation appDependencies.ktx
-    implementation appDependencies.appcompat
-
-    implementation appDependencies.material
-    implementation appDependencies.constraint
-
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation project (":feature:common")
+    implementation project (":feature:dairy:entry")
 }

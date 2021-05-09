@@ -1,12 +1,17 @@
-package org.dogadaev.database.model
+package org.dogadaev.database.entity
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
 data class DairyDB(
-    val id: Int,
+    @PrimaryKey val id: String,
     val title: String,
     val description: String,
     val creationDate: String,
-    val entries: List<Entry>
 ) {
+
+    @Entity
     data class Entry(
         val timestamp: String,
         val content: String
