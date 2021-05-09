@@ -1,9 +1,9 @@
 package org.dogadaev.dairy.converter
 
 import org.dogadaev.database.entity.DairyDB
-import org.dogadaev.entity.Dairy
+import org.dogadaev.entity.Diary
 
-fun DairyDB.toCommon() = Dairy(
+fun DairyDB.toCommon() = Diary(
     id,
     title,
     description,
@@ -16,7 +16,7 @@ fun DairyDB.toCommon() = Dairy(
 //    }
 )
 
-fun Dairy.toDB() = DairyDB(
+fun Diary.toDB() = DairyDB(
     id,
     title,
     description,

@@ -6,15 +6,15 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import org.dogadaev.entity.Dairy
+import org.dogadaev.entity.Diary
 import org.dogadaev.interactor.usecase.HomeUseCase
+import java.lang.System.currentTimeMillis
 import java.util.*
-import kotlin.random.Random
 
 class HomeViewModel(
     private val useCase: HomeUseCase
 ) : ViewModel() {
-    val data = MutableLiveData<List<Dairy>>(emptyList())
+    val data = MutableLiveData<List<Diary>>(emptyList())
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
@@ -28,19 +28,19 @@ class HomeViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             val id = UUID.randomUUID().toString()
 
-            val testDairy = Dairy(
+            val testDairy = Diary(
                 id,
                 id,
                 "Очень длинное описание дневника. Текст нужен, чтоб протестировать карточку в реальных условиях.",
-                "0"
+                currentTimeMillis()
             )
             useCase.saveDairy(testDairy)
         }
     }
 
-    fun removeTestItem(dairy: Dairy) {
+    fun removeTestItem(diary: Diary) {
         viewModelScope.launch(Dispatchers.IO) {
-            useCase.removeDairy(dairy)
+            useCase.removeDairy(diary)
         }
     }
 }

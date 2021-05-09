@@ -2,7 +2,7 @@ package org.dogadaev.home.presentation
 
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import org.dogadaev.entity.Dairy
+import org.dogadaev.entity.Diary
 import org.dogadaev.home.databinding.FragmentHomeLayoutBinding
 import org.dogadaev.presentation.viewmodel.HomeViewModel
 
@@ -42,7 +42,7 @@ class HomeViewInteractor(
         }
     }
 
-    private fun onItemLongClickListener(dairy: Dairy) {
-        viewModel.removeTestItem(dairy)
+    private fun onItemLongClickListener(diary: Diary) {
+        viewModel.removeTestItem(diary)
     }
 }
