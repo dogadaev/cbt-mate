@@ -14,14 +14,14 @@
             <option value="$PROJECT_DIR$/entity" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/common" />
-            <option value="$PROJECT_DIR$/feature/dairy" />
-            <option value="$PROJECT_DIR$/feature/dairy/entry" />
+            <option value="$PROJECT_DIR$/feature/diary" />
+            <option value="$PROJECT_DIR$/feature/diary/entry" />
             <option value="$PROJECT_DIR$/feature/home" />
             <option value="$PROJECT_DIR$/interactor" />
             <option value="$PROJECT_DIR$/presentation" />
             <option value="$PROJECT_DIR$/repository" />
-            <option value="$PROJECT_DIR$/repository/dairy" />
             <option value="$PROJECT_DIR$/repository/database" />
+            <option value="$PROJECT_DIR$/repository/diary" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

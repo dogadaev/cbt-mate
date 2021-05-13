@@ -2,13 +2,13 @@ package org.dogadaev.interactor.usecase
 
 import kotlinx.coroutines.flow.Flow
 import org.dogadaev.entity.Diary
-import org.dogadaev.interactor.repository.DairyRepository
+import org.dogadaev.interactor.repository.DiaryRepository
 
 class HomeUseCase(
-    private val dairyRepository: DairyRepository
+    private val diaryRepository: DiaryRepository
 ) {
 
-    fun getDairiesFlow(): Flow<List<Diary>> = dairyRepository.getDairiesFlow()
-    fun saveDairy(diary: Diary) = dairyRepository.saveDairy(diary)
-    fun removeDairy(diary: Diary) = dairyRepository.removeDairy(diary)
+    fun getDairiesFlow(): Flow<List<Diary>> = diaryRepository.getDairiesFlow()
+    fun saveDairy(diary: Diary) = diaryRepository.saveDairy(diary)
+    fun removeDairy(diary: Diary) = diaryRepository.removeDairy(diary)
 }
