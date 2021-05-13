@@ -5,7 +5,6 @@ plugins {
 
 dependencies {
     implementation project (":entity")
-    implementation project (":presentation")
     implementation project (":feature:common")
     implementation project (":feature:diary:entry")
 }
