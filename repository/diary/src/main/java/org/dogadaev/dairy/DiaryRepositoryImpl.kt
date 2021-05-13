@@ -12,8 +12,9 @@ class DiaryRepositoryImpl(
     private val dairiesDao: DairiesDao
 ) : DiaryRepository {
 
-    override fun getDairiesFlow(): Flow<List<Diary>> = dairiesDao.getDairies().map { dairies ->
-        dairies.map { it.toCommon() }
+    override fun getDairiesFlow(): Flow<List<Diary>> = dairiesDao.getDairiesWithEntries().map { dairies ->
+        // todo
+        dairies.map { it.diary.toCommon() }
     }
 
     override fun saveDairy(diary: Diary) = dairiesDao.saveDairies(diary.toDB())
