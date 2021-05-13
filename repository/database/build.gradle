@@ -5,6 +5,8 @@ plugins {
 }
 
 dependencies {
+    implementation appDependencies.gson
+
     implementation appDependencies.roomRuntime
     implementation appDependencies.roomKtx
     kapt appDependencies.roomCompiler
