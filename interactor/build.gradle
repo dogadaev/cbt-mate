@@ -4,6 +4,6 @@ plugins {
 }
 
 dependencies {
-    implementation project (":entity")
+    implementation project (":common:entity")
     implementation appDependencies.coroutines
 }

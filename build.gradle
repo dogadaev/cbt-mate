@@ -1,5 +1,10 @@
 buildscript {
     apply from: 'dependencies.gradle'
+    ext {
+        versions.kotlin = '1.5.0'
+        versions.kotlin = '1.5.0'
+        versions.kotlin = '1.5.0'
+    }
 
     repositories {
         google()
