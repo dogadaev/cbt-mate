@@ -13,7 +13,7 @@ data class DiaryWithEntries(
     ) val diaryEntries: List<DiaryDB.Entry>,
 )
 
-@Entity
+@Entity(tableName = "diaries")
 data class DiaryDB(
     @PrimaryKey val id: String,
     val title: String,
@@ -21,7 +21,7 @@ data class DiaryDB(
     val creationDate: Long,
 ) {
 
-    @Entity
+    @Entity(tableName = "diary_entries")
     data class Entry(
         @PrimaryKey(autoGenerate = true) val entryId: Long,
         val diaryId: String,

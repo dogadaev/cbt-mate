@@ -8,10 +8,10 @@ import org.dogadaev.database.entity.DiaryWithEntries
 @Dao
 interface DairiesDao {
 
-    @Query("SELECT * FROM diarydb")
+    @Query("SELECT * FROM diaries")
     fun getDairiesWithEntries(): Flow<List<DiaryWithEntries>>
 
-    @Query("SELECT * FROM diarydb")
+    @Query("SELECT * FROM diaries")
     fun getDairies(): Flow<List<DiaryDB>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

@@ -32,7 +32,8 @@ class HomeViewModel(
                 id,
                 id,
                 "Очень длинное описание дневника. Текст нужен, чтоб протестировать карточку в реальных условиях.",
-                currentTimeMillis()
+                currentTimeMillis(),
+                emptyList()
             )
             useCase.saveDairy(testDairy)
         }

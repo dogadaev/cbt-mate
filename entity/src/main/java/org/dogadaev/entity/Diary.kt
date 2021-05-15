@@ -5,44 +5,22 @@ data class Diary(
     val title: String,
     val description: String,
     val creationDate: Long,
-    val entries: List<Entry> = emptyList(),
+    val diaryEntries: List<Entry>,
 ) {
-    sealed class Entry {
-        abstract val timestamp: Long
 
-        /*
-            * Ситуация(событие или размышление)
-            * Автоматические мысли
-            * Эмоции
-            * Поведение
-        */
-        class Worry(
-            override val timestamp: Long,
-            val situationDescription: String,
-            val automaticThought: AutomaticThought,
-            val emotions: List<Emotion>,
-            val behaviourDescription: String,
-        ) : Entry()
+    data class Entry(
+        val diaryId: String,
+        val timestamp: Long,
+        val situationDescription: String,
+        val automaticThought: AutomaticThought,
+        val emotions: List<Emotion>,
+        val behaviourDescription: String,
+    )
 
-        // TODO: Maybe add a possibility to attach documents/media in the future
-        class Any(
-            override val timestamp: Long,
-            val text: String,
-        ) : Entry()
-    }
-
-    sealed class Emotion {
-        abstract val intensity: Int
-
-        data class Standard(
-            val emotion: StandardEmotion,
-            override val intensity: Int,
-        ) : Emotion()
-
-        data class Custom(
-            val name: String,
-            override val intensity: Int,
-        ) : Emotion()
+    data class Emotion(
+        val emotion: StandardEmotion,
+        val intensity: Int,
+    ) {
 
         enum class StandardEmotion {
             Fear,
@@ -51,7 +29,7 @@ data class Diary(
             Sadness,
             Disgust,
             Jealousy,
-            Loneliness,
+            Loneliness
         }
     }
 
