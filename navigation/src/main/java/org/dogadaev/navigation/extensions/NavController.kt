@@ -12,7 +12,7 @@ import org.dogadaev.navigation.R
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
-class NavControllerDelegate (
+internal class NavControllerDelegate (
     application: Application
 ) : ReadOnlyProperty<Navigator, NavController> {
 
