@@ -6,4 +6,7 @@ plugins {
 dependencies {
     implementation project (":common:entity")
     implementation project (":common:ui")
+
+    implementation appDependencies.material
+    implementation appDependencies.constraint
 }

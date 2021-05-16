@@ -11,7 +11,7 @@ val databaseModule = module {
         Room.databaseBuilder(
             androidApplication().applicationContext,
             ApplicationDatabase::class.java,
-            "dairy-buch-database"
+            "cbt-mate-database"
         )
             .addTypeConverter(EmotionConverter(get()))
             .build()

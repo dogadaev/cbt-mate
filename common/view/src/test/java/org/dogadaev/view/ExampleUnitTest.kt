@@ -1,4 +1,4 @@
-package org.dogadaev.entry
+package org.dogadaev.view
 
 import org.junit.Test
 

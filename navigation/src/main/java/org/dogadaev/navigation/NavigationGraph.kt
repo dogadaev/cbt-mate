@@ -2,5 +2,5 @@ package org.dogadaev.navigation
 
 sealed class NavigationGraph {
     object Home: NavigationGraph()
-    object Diary: NavigationGraph()
+    class Diary(val diaryId: String): NavigationGraph()
 }

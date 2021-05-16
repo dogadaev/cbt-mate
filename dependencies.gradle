@@ -8,7 +8,6 @@ ext {
             versionName   : '0.0.1',
     ]
 
-
     versions = [
             gradle: '4.2.0',
 

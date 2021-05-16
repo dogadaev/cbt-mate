@@ -7,9 +7,8 @@ plugins {
 dependencies {
     implementation project (":common:entity")
     implementation project (":common:ui")
+    implementation project (":common:view")
 
     implementation project (":presentation")
     implementation project (":navigation")
-
-    implementation project (":feature:diary:entry")
 }

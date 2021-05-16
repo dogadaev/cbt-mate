@@ -13,8 +13,8 @@ internal class NavigatorImpl(
     override fun navigate(screen: NavigationGraph) {
         navigationController.navigate(
             when (screen) {
-                NavigationGraph.Home -> NavGraphDirections.actionHome()
-                NavigationGraph.Diary -> NavGraphDirections.actionDiary()
+                is NavigationGraph.Home -> NavGraphDirections.actionHome()
+                is NavigationGraph.Diary -> NavGraphDirections.actionDiary(screen.diaryId)
             }
         )
     }

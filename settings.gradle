@@ -1,4 +1,5 @@
-rootProject.name = "DailyBuch"
+rootProject.name = "cbt-mate"
+
 include ':app'
 include ':interactor'
 include ':presentation'
@@ -6,10 +7,10 @@ include ':navigation'
 
 include ':common:ui'
 include ':common:entity'
+include ':common:view'
 
 include ':framework:database'
 include ':framework:repository'
 
 include ':feature:home'
 include ':feature:diary'
-include ':feature:diary:entry'

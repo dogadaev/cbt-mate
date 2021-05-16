@@ -5,6 +5,9 @@ import org.dogadaev.entity.Diary
 
 interface DiaryRepository {
     fun getDairiesFlow(): Flow<List<Diary>>
+    fun getEntriesFlow(diaryId: String): Flow<List<Diary.Entry>>
+
     fun saveDairy(diary: Diary)
+    fun saveEntry(entry: Diary.Entry)
     fun removeDairy(diary: Diary)
 }

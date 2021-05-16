@@ -26,8 +26,18 @@ fun DiaryDB.AutomaticThought.toCommon() = Diary.AutomaticThought(
     analysis,
 )
 
+fun Diary.AutomaticThought.toDB() = DiaryDB.AutomaticThought(
+    thought,
+    analysis,
+)
+
 fun DiaryDB.Emotion.toCommon() = Diary.Emotion(
     Diary.Emotion.StandardEmotion.values()[emotion.ordinal],
+    intensity
+)
+
+fun Diary.Emotion.toDB() = DiaryDB.Emotion(
+    DiaryDB.Emotion.StandardEmotion.values()[emotion.ordinal],
     intensity
 )
 
@@ -36,4 +46,14 @@ fun Diary.toDB() = DiaryDB(
     title,
     description,
     creationDate,
+)
+
+fun Diary.Entry.toDB() = DiaryDB.Entry(
+    0,
+    diaryId,
+    timestamp,
+    situationDescription,
+    automaticThought.toDB(),
+    emotions.map { it.toDB() },
+    behaviourDescription
 )

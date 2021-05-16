@@ -6,5 +6,10 @@
 
     <fragment
         android:id="@+id/diaryFragment"
-        android:name="org.dogadaev.diary.fragment.DiaryFragment" />
+        android:name="org.dogadaev.diary.fragment.DiaryFragment">
+
+        <argument
+            android:name="diaryId"
+            app:argType="string" />
+    </fragment>
 </navigation>

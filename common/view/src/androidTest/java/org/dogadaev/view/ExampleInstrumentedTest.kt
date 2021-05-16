@@ -1,4 +1,4 @@
-package org.dogadaev.entry
+package org.dogadaev.view
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("org.dogadaev.entry.test", appContext.packageName)
+        assertEquals("org.dogadaev.view.test", appContext.packageName)
     }
 }

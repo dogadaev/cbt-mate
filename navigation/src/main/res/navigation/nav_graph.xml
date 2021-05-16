@@ -14,5 +14,10 @@
 
     <action
         android:id="@+id/action_diary"
-        app:destination="@+id/diary_nav_graph" />
+        app:destination="@+id/diary_nav_graph">
+
+        <argument
+            android:name="diaryId"
+            app:argType="string" />
+    </action>
 </navigation>

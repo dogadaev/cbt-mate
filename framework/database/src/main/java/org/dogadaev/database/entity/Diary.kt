@@ -23,7 +23,7 @@ data class DiaryDB(
 
     @Entity(tableName = "diary_entries")
     data class Entry(
-        @PrimaryKey(autoGenerate = true) val entryId: Long,
+        @PrimaryKey(autoGenerate = true) val entryId: Long = 0,
         val diaryId: String,
         val timestamp: Long,
         val situationDescription: String,

@@ -2,6 +2,7 @@ package org.dogadaev.dailybuch
 
 import org.dogadaev.repository.repositoryModule
 import org.dogadaev.database.databaseModule
+import org.dogadaev.diary.diaryModule
 import org.dogadaev.entity.entityModule
 import org.dogadaev.home.homeModule
 import org.dogadaev.interactor.interactorModule
@@ -14,14 +15,19 @@ private val appModule = module {
 
 }
 
-val koinModules = listOf(
-    appModule,
-    entityModule,
-    interactorModule,
-    presentationModule,
-    databaseModule,
-    repositoryModule,
+private val uiModules = listOf(
     commonUiModule,
     homeModule,
-    navigationModule
+    diaryModule
 )
+
+private val frameWorkModules = listOf(
+    entityModule,
+    navigationModule,
+    interactorModule,
+    databaseModule,
+    repositoryModule,
+    presentationModule,
+)
+
+val koinModules = appModule + uiModules + frameWorkModules

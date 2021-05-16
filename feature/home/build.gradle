@@ -10,6 +10,4 @@ dependencies {
 
     implementation project (":presentation")
     implementation project (":navigation")
-
-    implementation project (":feature:diary:entry")
 }

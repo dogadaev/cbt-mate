@@ -48,7 +48,7 @@ class DairiesAdapter(
                 }
                 container.setOnClickListener {
                     // todo: do navigation in a proper place!
-                    navigator.navigate(NavigationGraph.Diary)
+                    navigator.navigate(NavigationGraph.Diary(item.id))
                 }
                 title.text = item.title
                 description.text = item.description

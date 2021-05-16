@@ -6,10 +6,13 @@ import org.dogadaev.database.entity.DiaryDB
 import org.dogadaev.database.entity.DiaryWithEntries
 
 @Dao
-interface DairiesDao {
+interface DiariesDao {
 
     @Query("SELECT * FROM diaries")
     fun getDairiesWithEntries(): Flow<List<DiaryWithEntries>>
+
+    @Query("SELECT * FROM diary_entries WHERE diaryId=:diaryId")
+    fun getDiaryEntries(diaryId: String): Flow<List<DiaryDB.Entry>>
 
     @Query("SELECT * FROM diaries")
     fun getDairies(): Flow<List<DiaryDB>>
@@ -21,5 +24,8 @@ interface DairiesDao {
     fun saveEntry(vararg entry: DiaryDB.Entry)
 
     @Delete
-    fun delete(diary: DiaryDB)
+    fun deleteDiary(diary: DiaryDB)
+
+    @Query("DELETE FROM diary_entries WHERE diaryId=:diaryId")
+    fun deleteEntries(diaryId: String)
 }

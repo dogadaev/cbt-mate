@@ -1,19 +1,18 @@
 package org.dogadaev.home.presentation
 
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.dogadaev.entity.Diary
 import org.dogadaev.home.databinding.FragmentHomeLayoutBinding
+import org.dogadaev.home.fragment.HomeFragment
 import org.dogadaev.navigation.Navigator
 import org.dogadaev.presentation.viewmodel.HomeViewModel
 
 class HomeViewInteractor(
-    private val fragment: Fragment,
+    private val fragment: HomeFragment,
     private val binding: FragmentHomeLayoutBinding,
     private val viewModel: HomeViewModel,
-    private val navigator: Navigator
+    private val navigator: Navigator,
 ) {
-    private val context = fragment.requireContext()
 
     init {
         setupToolbar()
@@ -37,10 +36,8 @@ class HomeViewInteractor(
     }
 
     private fun setupListeners() {
-        binding.apply {
-            addButton.setOnClickListener {
-                viewModel.addTestItem()
-            }
+        binding.addButton.setOnClickListener {
+            viewModel.addTestItem()
         }
     }
 
