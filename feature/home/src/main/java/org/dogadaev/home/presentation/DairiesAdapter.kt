@@ -7,11 +7,14 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.dogadaev.entity.Diary
 import org.dogadaev.home.databinding.ItemDairyLayoutBinding
+import org.dogadaev.navigation.NavigationGraph
+import org.dogadaev.navigation.Navigator
 
 typealias OnItemLongClickListener = (Diary) -> Unit
 
 class DairiesAdapter(
-    private val longClickListener: OnItemLongClickListener
+    private val longClickListener: OnItemLongClickListener,
+    private val navigator: Navigator
 ): ListAdapter<Diary, DairiesAdapter.ViewHolder>(DiffCallback()) {
 
     private class DiffCallback : DiffUtil.ItemCallback<Diary>() {
@@ -23,7 +26,8 @@ class DairiesAdapter(
         ItemDairyLayoutBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         ),
-        longClickListener
+        longClickListener,
+        navigator
     )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -32,7 +36,8 @@ class DairiesAdapter(
 
     class ViewHolder(
         private val binding: ItemDairyLayoutBinding,
-        private val longClickListener: OnItemLongClickListener
+        private val longClickListener: OnItemLongClickListener,
+        private val navigator: Navigator
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Diary) {
@@ -40,6 +45,10 @@ class DairiesAdapter(
                 container.setOnLongClickListener {
                     longClickListener(item)
                     true
+                }
+                container.setOnClickListener {
+                    // todo: do navigation in a proper place!
+                    navigator.navigate(NavigationGraph.Diary)
                 }
                 title.text = item.title
                 description.text = item.description

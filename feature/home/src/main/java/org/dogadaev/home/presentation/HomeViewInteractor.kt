@@ -4,12 +4,14 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.dogadaev.entity.Diary
 import org.dogadaev.home.databinding.FragmentHomeLayoutBinding
+import org.dogadaev.navigation.Navigator
 import org.dogadaev.presentation.viewmodel.HomeViewModel
 
 class HomeViewInteractor(
     private val fragment: Fragment,
     private val binding: FragmentHomeLayoutBinding,
     private val viewModel: HomeViewModel,
+    private val navigator: Navigator
 ) {
     private val context = fragment.requireContext()
 
@@ -24,7 +26,7 @@ class HomeViewInteractor(
     }
 
     private fun setupRecycler() {
-        val dairiesAdapter = DairiesAdapter(::onItemLongClickListener)
+        val dairiesAdapter = DairiesAdapter(::onItemLongClickListener, navigator)
 
         binding.dairiesList.apply {
             layoutManager = LinearLayoutManager(context)

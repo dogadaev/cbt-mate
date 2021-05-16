@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -25,7 +26,4 @@ dependencies {
     implementation project (":feature:home")
     implementation project (":feature:diary")
     implementation project (":feature:diary:entry")
-
-    implementation appDependencies.navigationFragment
-    implementation appDependencies.navigationUI
 }

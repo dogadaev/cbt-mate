@@ -1,10 +1,5 @@
 buildscript {
     apply from: 'dependencies.gradle'
-    ext {
-        versions.kotlin = '1.5.0'
-        versions.kotlin = '1.5.0'
-        versions.kotlin = '1.5.0'
-    }
 
     repositories {
         google()
@@ -13,6 +8,7 @@ buildscript {
     dependencies {
         classpath appDependencies.gradle
         classpath appDependencies.kotlinPlugin
+        classpath appDependencies.navigationSafeArgs
     }
 }
 

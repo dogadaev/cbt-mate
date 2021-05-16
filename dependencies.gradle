@@ -57,6 +57,7 @@ ext {
             material   : "com.google.android.material:material:${versions.material}",
 
             // Navigation
+            navigationSafeArgs : "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.navigation}",
             navigationFragment : "androidx.navigation:navigation-fragment-ktx:${versions.navigation}",
             navigationUI       : "androidx.navigation:navigation-ui-ktx:${versions.navigation}",
             navigationDynamic  : "androidx.navigation:navigation-dynamic-features-fragment:${versions.navigation}",
