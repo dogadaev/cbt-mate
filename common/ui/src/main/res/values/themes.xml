@@ -76,6 +76,8 @@
 
     <style name="Button" parent="Widget.MaterialComponents.Button" />
 
+    <style name="EditText" parent="Widget.AppCompat.EditText" />
+
     <style name="Toolbar" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="contentInsetLeft">0dp</item>
         <item name="contentInsetStart">0dp</item>
@@ -85,25 +87,34 @@
         <item name="android:layout_height">?attr/actionBarSize</item>
     </style>
 
-    <style name="Text.Toolbar.Title" parent="Text.System.B.18">
+    <style name="Toolbar.Text.Title" parent="Text.System.B.18">
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Text.Diary.Title" parent="Text.System.B.14">
+    <style name="Diary.Text.Title" parent="Text.System.B.14">
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="ImageButton.Toolbar.Add" parent="ImageButton">
+    <style name="Toolbar.ImageButton" parent="ImageButton">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">end|center_vertical</item>
         <item name="android:layout_marginEnd">@dimen/space_x2</item>
 
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
-        <item name="android:src">@drawable/ic_add</item>
         <item name="tint">@color/white</item>
+    </style>
 
-        <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@color/white</item>
+    <style name="Toolbar.Button.Add" parent="Toolbar.ImageButton">
+        <item name="android:src">@drawable/ic_add</item>
+    </style>
+
+    <style name="Toolbar.Button.Submit" parent="Toolbar.ImageButton">
+        <item name="android:src">@drawable/ic_submit</item>
+    </style>
+
+    <style name="Form.EditText" parent="EditText">
+        <item name="android:backgroundTint">@color/background_editext</item>
+        <item name="android:textCursorDrawable">@drawable/edittext_cursor</item>
     </style>
 </resources>

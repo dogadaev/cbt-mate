@@ -9,6 +9,5 @@ class HomeUseCase(
 ) {
 
     fun getDairiesFlow(): Flow<List<Diary>> = diaryRepository.getDairiesFlow()
-    fun saveDairy(diary: Diary) = diaryRepository.saveDairy(diary)
     fun removeDairy(diary: Diary) = diaryRepository.removeDairy(diary)
 }

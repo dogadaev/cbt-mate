@@ -9,7 +9,7 @@ class DiaryUseCase(
     private val repository: DiaryRepository
 ) {
 
-    fun getEntries() = repository.getEntriesFlow(diaryId)
+    fun getDiary() = repository.getDiaryFlow(diaryId)
 
     fun insertEntry() {
         val entry = Diary.Entry(

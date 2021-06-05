@@ -45,11 +45,7 @@ class HomeViewInteractor(
 
     private fun setupListeners() {
         binding.addButton.setOnClickListener {
-            viewModel.addTestItem()
+            navigator.navigate(NavigationGraphScreen.DiaryCreationForm)
         }
-    }
-
-    private fun onItemLongClickListener(diary: Diary) {
-        viewModel.removeTestItem(diary)
     }
 }

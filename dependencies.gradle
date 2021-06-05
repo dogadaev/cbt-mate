@@ -1,6 +1,6 @@
 ext {
     def corePackageName = "org.dogadaev"
-    def appPackageName = "dailybuch"
+    def appPackageName = ".cbtmate"
 
     constants = [
             applicationId : corePackageName + appPackageName,

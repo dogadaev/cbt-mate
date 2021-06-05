@@ -11,13 +11,17 @@ import org.dogadaev.interactor.usecase.DiaryUseCase
 
 class DiaryViewModel(
     private val useCase: DiaryUseCase,
-): ViewModel() {
-    val data =  MutableLiveData<List<Diary.Entry>>()
+) : ViewModel() {
+
+    val data = MutableLiveData<Diary>()
+    val title = MutableLiveData<String>()
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            useCase.getEntries().collect {
+            useCase.getDiary().collect {
                 data.postValue(it)
+
+                title.postValue(it.title)
             }
         }
     }

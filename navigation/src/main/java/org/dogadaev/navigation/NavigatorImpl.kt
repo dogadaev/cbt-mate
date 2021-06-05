@@ -10,12 +10,17 @@ internal class NavigatorImpl(
 
     private val navigationController: NavController by onNavHostReady()
 
-    override fun navigate(screen: NavigationGraph) {
+    override fun navigate(screen: NavigationGraphScreen) {
         navigationController.navigate(
             when (screen) {
-                is NavigationGraph.Home -> NavGraphDirections.actionHome()
-                is NavigationGraph.Diary -> NavGraphDirections.actionDiary(screen.diaryId)
+                is NavigationGraphScreen.Home -> NavGraphDirections.actionHome()
+                is NavigationGraphScreen.DiaryCreationForm -> NavGraphDirections.actionDiaryCreationForm()
+                is NavigationGraphScreen.Diary -> NavGraphDirections.actionDiary(screen.diaryId)
             }
         )
+    }
+
+    override fun navigateBack() {
+        navigationController.popBackStack()
     }
 }

@@ -19,7 +19,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                style="@style/Text.Diary.Title"
+                style="@style/Diary.Text.Title"
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

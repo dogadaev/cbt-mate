@@ -3,7 +3,6 @@ package org.dogadaev.diary.presentation
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.dogadaev.diary.databinding.FragmentDiaryLayoutBinding
 import org.dogadaev.diary.fragment.DiaryFragment
-import org.dogadaev.diary.fragment.DiaryFragmentArgs
 import org.dogadaev.presentation.viewmodel.DiaryViewModel
 
 class DiaryViewInteractor(
@@ -19,7 +18,7 @@ class DiaryViewInteractor(
     }
 
     private fun setupToolbar() {
-        binding.title.text = "Diary"
+        viewModel.title.observe(fragment.viewLifecycleOwner, binding.title::setText)
     }
 
     private fun setupRecycler() {
@@ -30,7 +29,9 @@ class DiaryViewInteractor(
             adapter = entriesAdapter
         }
 
-        viewModel.data.observe(fragment.viewLifecycleOwner, entriesAdapter::submitList)
+        viewModel.data.observe(fragment.viewLifecycleOwner) { diary ->
+            entriesAdapter.submitList(diary.entries)
+        }
     }
 
     private fun setupListeners() {

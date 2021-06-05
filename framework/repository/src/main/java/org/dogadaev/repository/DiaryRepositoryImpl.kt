@@ -12,6 +12,10 @@ class DiaryRepositoryImpl(
     private val diariesDao: DiariesDao,
 ) : DiaryRepository {
 
+    override fun getDiaryFlow(diaryId: String) = diariesDao.getDairyFlow(diaryId).map {
+        it.toUIModel()
+    }
+
     override fun getDairiesFlow() = diariesDao.getDairiesWithEntries().map { dairies ->
         dairies.map { it.toUIModel() }
     }

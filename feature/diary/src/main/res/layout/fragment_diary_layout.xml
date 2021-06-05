@@ -23,7 +23,7 @@
 
                     <TextView
                         android:id="@+id/title"
-                        style="@style/Text.Toolbar.Title"
+                        style="@style/Toolbar.Text.Title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,7 +33,7 @@
 
                     <ImageView
                         android:id="@+id/addButton"
-                        style="@style/ImageButton.Toolbar.Add"
+                        style="@style/Toolbar.Button.Add"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />

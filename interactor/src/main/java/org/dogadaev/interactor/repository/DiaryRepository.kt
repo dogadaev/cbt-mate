@@ -4,6 +4,7 @@ import kotlinx.coroutines.flow.Flow
 import org.dogadaev.entity.Diary
 
 interface DiaryRepository {
+    fun getDiaryFlow(diaryId: String): Flow<Diary>
     fun getDairiesFlow(): Flow<List<Diary>>
     fun getEntriesFlow(diaryId: String): Flow<List<Diary.Entry>>
 

@@ -1,5 +1,6 @@
 package org.dogadaev.dailybuch
 
+import org.dogadaev.creationform.diaryCreationFormModule
 import org.dogadaev.repository.repositoryModule
 import org.dogadaev.database.databaseModule
 import org.dogadaev.diary.diaryModule
@@ -18,7 +19,8 @@ private val appModule = module {
 private val uiModules = listOf(
     commonUiModule,
     homeModule,
-    diaryModule
+    diaryModule,
+    diaryCreationFormModule,
 )
 
 private val frameWorkModules = listOf(

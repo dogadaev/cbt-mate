@@ -5,7 +5,7 @@ data class Diary(
     val title: String,
     val description: String,
     val creationDate: Long,
-    val diaryEntries: List<Entry>,
+    val entries: List<Entry>,
 ) {
 
     data class Entry(

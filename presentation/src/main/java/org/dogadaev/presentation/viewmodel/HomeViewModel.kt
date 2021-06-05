@@ -24,21 +24,6 @@ class HomeViewModel(
         }
     }
 
-    fun addTestItem() {
-        viewModelScope.launch(Dispatchers.IO) {
-            val id = UUID.randomUUID().toString()
-
-            val testDairy = Diary(
-                id,
-                id,
-                "Очень длинное описание дневника. Текст нужен, чтоб протестировать карточку в реальных условиях.",
-                currentTimeMillis(),
-                emptyList()
-            )
-            useCase.saveDairy(testDairy)
-        }
-    }
-
     fun removeTestItem(diary: Diary) {
         viewModelScope.launch(Dispatchers.IO) {
             useCase.removeDairy(diary)

@@ -6,6 +6,7 @@
 
     <include app:graph="@navigation/home_nav_graph" />
     <include app:graph="@navigation/diary_nav_graph" />
+    <include app:graph="@navigation/diary_creation_form_nav_graph" />
 
     <action
         android:id="@+id/action_home"
@@ -14,10 +15,16 @@
 
     <action
         android:id="@+id/action_diary"
-        app:destination="@+id/diary_nav_graph">
+        app:destination="@+id/diary_nav_graph"
+        app:popUpTo="@navigation/home_nav_graph">
 
         <argument
             android:name="diaryId"
             app:argType="string" />
     </action>
+
+    <action
+        android:id="@+id/action_diary_creation_form"
+        app:destination="@+id/diary_creation_form_nav_graph"
+        app:popUpTo="@navigation/home_nav_graph"/>
 </navigation>
