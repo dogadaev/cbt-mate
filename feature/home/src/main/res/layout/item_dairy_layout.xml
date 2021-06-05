@@ -19,11 +19,10 @@
             android:layout_height="wrap_content">
 
             <TextView
-                style="@style/Text.System.B.14"
+                style="@style/Text.Diary.Title"
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
                 android:gravity="center_horizontal"
                 android:paddingVertical="@dimen/default_space"
                 android:background="@color/purple_500"
