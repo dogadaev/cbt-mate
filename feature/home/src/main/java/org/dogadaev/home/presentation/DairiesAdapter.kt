@@ -7,15 +7,15 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.dogadaev.entity.Diary
 import org.dogadaev.home.databinding.ItemDairyLayoutBinding
-import org.dogadaev.navigation.NavigationGraph
+import org.dogadaev.navigation.NavigationGraphScreen
 import org.dogadaev.navigation.Navigator
 
-typealias OnItemLongClickListener = (Diary) -> Unit
+typealias OnItemClickListener = (Diary) -> Unit
 
 class DairiesAdapter(
-    private val longClickListener: OnItemLongClickListener,
-    private val navigator: Navigator
-): ListAdapter<Diary, DairiesAdapter.ViewHolder>(DiffCallback()) {
+    private val onItemClicked: OnItemClickListener,
+    private val onItemLongClicked: OnItemClickListener,
+) : ListAdapter<Diary, DairiesAdapter.ViewHolder>(DiffCallback()) {
 
     private class DiffCallback : DiffUtil.ItemCallback<Diary>() {
         override fun areItemsTheSame(oldItem: Diary, newItem: Diary) = oldItem.id == newItem.id
@@ -26,8 +26,8 @@ class DairiesAdapter(
         ItemDairyLayoutBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         ),
-        longClickListener,
-        navigator
+        onItemClicked,
+        onItemLongClicked,
     )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -36,19 +36,18 @@ class DairiesAdapter(
 
     class ViewHolder(
         private val binding: ItemDairyLayoutBinding,
-        private val longClickListener: OnItemLongClickListener,
-        private val navigator: Navigator
+        private val onItemClicked: OnItemClickListener,
+        private val onItemLongClicked: OnItemClickListener,
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Diary) {
             binding.apply {
                 container.setOnLongClickListener {
-                    longClickListener(item)
+                    onItemLongClicked(item)
                     true
                 }
                 container.setOnClickListener {
-                    // todo: do navigation in a proper place!
-                    navigator.navigate(NavigationGraph.Diary(item.id))
+                    onItemClicked(item)
                 }
                 title.text = item.title
                 description.text = item.description
