@@ -14,4 +14,4 @@ include ':framework:repository'
 
 include ':feature:home'
 include ':feature:diary'
-include ':feature:diary:creationForm'
+include ':feature:diary-creation-form'
