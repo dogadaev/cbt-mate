@@ -3,7 +3,27 @@ plugins {
     id 'kotlin-android'
 }
 
+android {
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion versions.compose
+    }
+}
+
 dependencies {
+    api appDependencies.compose
+    api appDependencies.composeTooling
+    api appDependencies.composeFoundation
+    api appDependencies.composeMaterial
+    api appDependencies.composeMaterialIcons
+    api appDependencies.composeActivity
+    api appDependencies.composeViewModel
+    api appDependencies.composeLiveData
+    // api appDependencies.composeTest
+
     api appDependencies.ktx
     api appDependencies.appcompat
 
