@@ -5,9 +5,13 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":common:entity"))
-    implementation(project(":interactor"))
-    implementation(project(":framework:database"))
+    with(build.project) {
+        implementation(project(common_entity))
+        implementation(project(interactor))
+        implementation(project(framework_database))
+    }
 
-    implementation(build.deps.coroutines)
+    with(build.deps) {
+        implementation(coroutines)
+    }
 }

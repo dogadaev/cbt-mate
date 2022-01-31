@@ -5,9 +5,13 @@ plugins {
 }
 
 dependencies {
-    implementation(build.deps.gson)
+    with(build.deps) {
+        implementation(gson)
 
-    implementation(build.deps.roomRuntime)
-    implementation(build.deps.roomKtx)
+        implementation(roomRuntime)
+        implementation(roomKtx)
+    }
+
+    /* Weird behaviour when applied within `with` function. */
     kapt(build.deps.roomCompiler)
 }

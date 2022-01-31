@@ -6,6 +6,8 @@ plugins {
 }
 
 dependencies {
-    api(build.deps.navigationFragment)
-    api(build.deps.navigationUI)
+    with(build.deps) {
+        api(navigationFragment)
+        api(navigationUI)
+    }
 }

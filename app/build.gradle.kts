@@ -16,16 +16,19 @@ android {
 }
 
 dependencies {
-    implementation(project(":common:entity"))
-    implementation(project(":interactor"))
-    implementation(project(":presentation"))
-    implementation(project(":navigation"))
+    with(build.project) {
+        implementation(project(interactor))
+        implementation(project(presentation))
+        implementation(project(navigation))
 
-    implementation(project(":framework:database"))
-    implementation(project(":framework:repository"))
+        implementation(project(common_ui))
+        implementation(project(common_entity))
 
-    implementation(project(":common:ui"))
-    implementation(project(":feature:home"))
-    implementation(project(":feature:diary"))
-    implementation(project(":feature:diary-creation-form"))
+        implementation(project(framework_database))
+        implementation(project(framework_repository))
+
+        implementation(project(feature_home))
+        implementation(project(feature_diary))
+        implementation(project(feature_diaryCreationForm))
+    }
 }

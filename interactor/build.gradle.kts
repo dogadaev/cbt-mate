@@ -5,6 +5,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":common:entity"))
-    implementation(build.deps.coroutines)
+    with(build.project) {
+        implementation(project(common_entity))
+    }
+
+    with(build.deps) {
+        implementation(coroutines)
+    }
 }

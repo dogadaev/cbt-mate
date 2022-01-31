@@ -124,4 +124,19 @@ object build {
         const val junitExt = "androidx.test.ext:junit:${version.junitExt}"
         const val espresso = "androidx.test.espresso:espresso-core:${version.espresso}"
     }
+
+
+    object project {
+        const val app = ":app"
+        const val interactor = ":interactor"
+        const val presentation = ":presentation"
+        const val navigation = ":navigation"
+        const val common_ui = ":common:ui"
+        const val common_entity = ":common:entity"
+        const val framework_database = ":framework:database"
+        const val framework_repository = ":framework:repository"
+        const val feature_home = ":feature:home"
+        const val feature_diary = ":feature:diary"
+        const val feature_diaryCreationForm = ":feature:diary-creation-form"
+    }
 }
