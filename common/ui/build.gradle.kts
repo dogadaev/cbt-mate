@@ -15,24 +15,26 @@ android {
 }
 
 dependencies {
-    api(build.deps.compose)
-    api(build.deps.composeTooling)
-    api(build.deps.composeFoundation)
-    api(build.deps.composeMaterial)
-    api(build.deps.composeMaterialIcons)
-    api(build.deps.composeActivity)
-    api(build.deps.composeViewModel)
-    api(build.deps.composeLiveData)
-    // api appDependencies.composeTest
+    with(build.deps) {
+        api(compose)
+        api(composeTooling)
+        api(composeFoundation)
+        api(composeMaterial)
+        api(composeMaterialIcons)
+        api(composeActivity)
+        api(composeViewModel)
+        api(composeLiveData)
+        // api(composeTest)
 
-    api(build.deps.ktx)
-    api(build.deps.appcompat)
+        api(ktx)
+        api(appcompat)
 
-    api(build.deps.material)
-    api(build.deps.constraint)
+        api(material)
+        api(constraint)
 
-    implementation(build.deps.lifecycleCommon)
-    implementation(build.deps.lifecycleRuntime)
-    implementation(build.deps.viewmodel)
-    implementation(build.deps.livedata)
+        implementation(lifecycleCommon)
+        implementation(lifecycleRuntime)
+        implementation(viewmodel)
+        implementation(livedata)
+    }
 }

@@ -16,9 +16,11 @@ android {
 }
 
 dependencies {
-    implementation(project(":common:entity"))
-    implementation(project(":common:ui"))
+    with(build.project) {
+        implementation(project(common_entity))
+        implementation(project(common_ui))
 
-    implementation(project(":presentation"))
-    implementation(project(":navigation"))
+        implementation(project(presentation))
+        implementation(project(navigation))
+    }
 }

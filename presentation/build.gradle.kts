@@ -5,9 +5,13 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":common:entity"))
-    implementation(project(":interactor"))
+    with(build.project) {
+        implementation(project(common_entity))
+        implementation(project(interactor))
+    }
 
-    implementation(build.deps.viewmodel)
-    implementation(build.deps.livedata)
+    with(build.deps) {
+        implementation(viewmodel)
+        implementation(livedata)
+    }
 }
