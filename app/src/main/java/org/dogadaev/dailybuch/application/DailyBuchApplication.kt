@@ -1,24 +1,7 @@
 package org.dogadaev.dailybuch.application
 
 import android.app.Application
-import org.dogadaev.dailybuch.koinModules
-import org.koin.android.ext.koin.androidContext
-import org.koin.androidx.fragment.koin.fragmentFactory
-import org.koin.core.context.startKoin
+import dagger.hilt.android.HiltAndroidApp
 
-class DailyBuchApplication: Application() {
-
-    override fun onCreate() {
-        super.onCreate()
-
-        setupKoin()
-    }
-
-    private fun setupKoin() {
-        startKoin {
-            modules(koinModules)
-            androidContext(applicationContext.applicationContext)
-            fragmentFactory()
-        }
-    }
-}
+@HiltAndroidApp
+class DailyBuchApplication: Application()

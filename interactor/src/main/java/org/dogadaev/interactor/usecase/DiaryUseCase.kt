@@ -1,17 +1,20 @@
 package org.dogadaev.interactor.usecase
 
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedInject
 import org.dogadaev.entity.Diary
 import org.dogadaev.interactor.repository.DiaryRepository
 import java.lang.System.currentTimeMillis
+import javax.inject.Inject
 
-class DiaryUseCase(
-    private val diaryId: String,
+class DiaryUseCase @AssistedInject constructor(
+    @Assisted private val diaryId: String,
     private val repository: DiaryRepository
 ) {
 
-    fun getDiary() = repository.getDiaryFlow(diaryId)
+    suspend fun getDiary() = repository.getDiaryFlow(diaryId)
 
-    fun insertEntry() {
+    suspend fun insertEntry() {
         val entry = Diary.Entry(
             diaryId,
             timestamp = currentTimeMillis(),
