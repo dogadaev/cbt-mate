@@ -28,7 +28,6 @@ class FragmentViewBindingDelegate<T : ViewBinding>(
                         binding = null
                     }
                 })
-
             }
 
             override fun onCreate(owner: LifecycleOwner) {

@@ -1,26 +1,37 @@
 package org.dogadaev.home.fragment
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
-import org.dogadaev.home.R
-import org.dogadaev.home.databinding.FragmentHomeLayoutBinding
-import org.dogadaev.home.presentation.HomeViewInteractor
+import androidx.fragment.app.viewModels
+import dagger.hilt.android.AndroidEntryPoint
+import org.dogadaev.home.compose.HomeScreen
 import org.dogadaev.navigation.Navigator
 import org.dogadaev.presentation.viewmodel.HomeViewModel
-import org.dogadaev.ui.extensions.viewBinding
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class HomeFragment(
-    private val navigator: Navigator
-): Fragment(R.layout.fragment_home_layout) {
+    navigator: Navigator
+) : Fragment() {
 
-    private val viewModel: HomeViewModel by viewModel()
-    private val binding by viewBinding(FragmentHomeLayoutBinding::bind)
+    private val viewModel: HomeViewModel by viewModels()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View = ComposeView(requireContext()).apply {
+        layoutParams = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.MATCH_PARENT
+        )
 
-        HomeViewInteractor(this, binding, viewModel, navigator)
+        setContent {
+            HomeScreen(viewModel)
+        }
     }
 }

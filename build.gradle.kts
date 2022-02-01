@@ -71,9 +71,6 @@ subprojects {
                 add("implementation", build.deps.hilt.android)
                 add("kapt", build.deps.hilt.compiler)
 
-                add("implementation", build.deps.koinAndroid)
-                add("implementation", build.deps.koinAndroidExt)
-
                 add("testImplementation", build.deps.junit)
                 add("androidTestImplementation", build.deps.junitExt)
             }
@@ -102,9 +99,6 @@ subprojects {
             }
 
             dependencies {
-                add("implementation", build.deps.koinAndroid)
-                add("implementation", build.deps.koinAndroidExt)
-
                 add("implementation", build.deps.hilt.android)
                 add("kapt", build.deps.hilt.compiler)
             }

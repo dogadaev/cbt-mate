@@ -22,15 +22,15 @@ class DiaryViewInteractor(
     }
 
     private fun setupRecycler() {
-        val entriesAdapter = EntriesAdapter()
+//        val entriesAdapter = EntriesAdapter()
 
         binding.entriesList.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = entriesAdapter
+//            adapter = entriesAdapter
         }
 
         viewModel.data.observe(fragment.viewLifecycleOwner) { diary ->
-            entriesAdapter.submitList(diary.entries)
+//            entriesAdapter.submitList(diary.entries)
         }
     }
 

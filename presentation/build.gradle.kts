@@ -11,6 +11,11 @@ dependencies {
     }
 
     with(build.deps) {
+        api(appcompat)
+
+        implementation(lifecycleCommon)
+        implementation(lifecycleRuntime)
+
         implementation(viewmodel)
         implementation(livedata)
     }

@@ -20,8 +20,6 @@ object build {
         const val kotlin = "1.6.10"
         const val ktx = "1.6.0"
         const val appcompat = "1.4.0-alpha03"
-        const val koin = "3.1.5"
-        const val koinAndroidExt = "3.0.2"
         const val hilt = "2.40.5"
         const val navigation = "2.4.0-alpha08"
         const val lifecycle = "2.3.1"
@@ -110,11 +108,6 @@ object build {
             const val android = "com.google.dagger:hilt-android:${version.hilt}"
             const val compiler = "com.google.dagger:hilt-compiler:${version.hilt}"
         }
-
-        const val koin = "io.insert-koin:koin-core:${version.koin}"
-        const val koinAndroid = "io.insert-koin:koin-android:${version.koin}"
-        const val koinAndroidExt = "io.insert-koin:koin-android-ext:${version.koinAndroidExt}"
-        const val koinTest = "io.insert-koin:koin-junit4:${version.koin}"
 
         // Coroutines
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${version.coroutines}"

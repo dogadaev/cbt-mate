@@ -3,20 +3,23 @@ package org.dogadaev.presentation.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.dogadaev.entity.Diary
 import org.dogadaev.interactor.usecase.DiaryCreationUseCase
 import java.util.*
+import javax.inject.Inject
 
-class DiaryCreationFormViewModel(
+@HiltViewModel
+class DiaryCreationFormViewModel @Inject constructor(
     private val useCase: DiaryCreationUseCase
-): ViewModel() {
+) : ViewModel() {
 
     val diarySavedResult = MutableLiveData<Boolean>()
 
     fun createDiary(model: DiaryCreationModel) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             val id = UUID.randomUUID().toString()
 
             val testDairy = Diary(
