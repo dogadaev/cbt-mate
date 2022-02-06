@@ -5,14 +5,15 @@ import dagger.assisted.AssistedInject
 import org.dogadaev.entity.Diary
 import org.dogadaev.interactor.repository.DiaryRepository
 import java.lang.System.currentTimeMillis
-import javax.inject.Inject
 
 class DiaryUseCase @AssistedInject constructor(
     @Assisted private val diaryId: String,
     private val repository: DiaryRepository
 ) {
 
-    suspend fun getDiary() = repository.getDiaryFlow(diaryId)
+    val diary = repository.diaryResource.parametrizedFlow(
+        parameter = diaryId
+    )
 
     suspend fun insertEntry() {
         val entry = Diary.Entry(

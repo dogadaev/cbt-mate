@@ -9,6 +9,7 @@ import org.dogadaev.entity.Diary
 import org.dogadaev.interactor.usecase.DiaryCreationUseCase
 import org.dogadaev.interactor.usecase.HomeUseCase
 import java.lang.System.currentTimeMillis
+import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -21,21 +22,22 @@ class HomeViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            diaryCreationUseCase.saveDairy(
-                Diary(
-                    "ID,",
-                    "ID,",
-                    "ID,",
-                    currentTimeMillis(),
-                    emptyList(),
-                )
-            )
-        }
-
-        viewModelScope.launch {
             useCase.diaries.collect {
                 _data.emit(it)
             }
+        }
+
+        viewModelScope.launch {
+            val uuid = UUID.randomUUID().toString()
+            diaryCreationUseCase.saveDairy(
+                Diary(
+                    id = uuid,
+                    title = uuid,
+                    description = uuid,
+                    creationDate = currentTimeMillis(),
+                    entries = emptyList(),
+                )
+            )
         }
     }
 

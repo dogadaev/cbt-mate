@@ -11,7 +11,9 @@ import org.dogadaev.repository.converter.toUIModel
 import org.dogadaev.database.dao.DiariesDao
 import org.dogadaev.entity.Diary
 import org.dogadaev.interactor.repository.DiaryRepository
+import org.dogadaev.interactor.resource.ParametrizedResource
 import org.dogadaev.repository.converter.toCommon
+import org.dogadaev.repository.resource.ParametrizedResourceImpl
 import javax.inject.Inject
 
 class DiaryRepositoryImpl @Inject constructor(
@@ -23,14 +25,13 @@ class DiaryRepositoryImpl @Inject constructor(
             dairies.map { it.toUIModel() }
         }
 
-
-    override suspend fun getDiaryFlow(diaryId: String) = withContext(Dispatchers.IO) {
+    override val diaryResource = ParametrizedResourceImpl<Diary, String> { diaryId ->
         diariesDao.getDairyFlow(diaryId).map {
             it.toUIModel()
         }
     }
 
-    override suspend fun getEntriesFlow(diaryId: String) = withContext(Dispatchers.IO) {
+    override val entryResource = ParametrizedResourceImpl<List<Diary.Entry>, String> { diaryId->
         diariesDao.getDiaryEntries(diaryId).map { entries ->
             entries.map { it.toCommon() }
         }

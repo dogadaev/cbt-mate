@@ -31,7 +31,7 @@ class DiaryViewModel @AssistedInject constructor(
 
     init {
         viewModelScope.launch {
-            useCase.getDiary().collect {
+            useCase.diary.collect {
                 data.postValue(it)
 
                 title.postValue(it.title)
