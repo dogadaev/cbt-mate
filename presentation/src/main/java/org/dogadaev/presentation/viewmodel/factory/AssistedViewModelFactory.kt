@@ -1,5 +1,6 @@
 package org.dogadaev.presentation.viewmodel.factory
 
+import androidx.lifecycle.viewmodel.CreationExtras
 import dagger.assisted.AssistedFactory
 import org.dogadaev.presentation.viewmodel.DiaryViewModel
 
@@ -7,6 +8,6 @@ import org.dogadaev.presentation.viewmodel.DiaryViewModel
 interface AssistedViewModelFactory {
 
     fun createDiaryViewModel(
-        diaryId: String
+        extras: CreationExtras
     ): DiaryViewModel
 }

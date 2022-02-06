@@ -9,6 +9,7 @@ class HomeUseCase @Inject constructor(
     private val diaryRepository: DiaryRepository
 ) {
 
-    suspend fun getDairiesFlow(): Flow<List<Diary>> = diaryRepository.getDairiesFlow()
+    val diaries = diaryRepository.diaries
+
     suspend fun removeDairy(diary: Diary) = diaryRepository.removeDairy(diary)
 }

@@ -8,8 +8,8 @@ import org.dogadaev.database.entity.DiaryWithEntries
 @Dao
 interface DiariesDao {
 
-    @Query("SELECT * FROM diaries")
-    fun getDairiesWithEntries(): Flow<List<DiaryWithEntries>>
+    val dairiesWithEntries: Flow<List<DiaryWithEntries>>
+        @Query("SELECT * FROM diaries") get
 
     @Query("SELECT * FROM diaries WHERE id=:diaryId")
     fun getDairyFlow(diaryId: String): Flow<DiaryWithEntries>
