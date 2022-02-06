@@ -1,7 +1,10 @@
 package org.dogadaev.repository
 
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapLatest
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.withContext
 import org.dogadaev.repository.converter.toDB
 import org.dogadaev.repository.converter.toUIModel
@@ -15,15 +18,15 @@ class DiaryRepositoryImpl @Inject constructor(
     private val diariesDao: DiariesDao,
 ) : DiaryRepository {
 
+    override val diaries = diariesDao.dairiesWithEntries
+        .mapLatest { dairies ->
+            dairies.map { it.toUIModel() }
+        }
+
+
     override suspend fun getDiaryFlow(diaryId: String) = withContext(Dispatchers.IO) {
         diariesDao.getDairyFlow(diaryId).map {
             it.toUIModel()
-        }
-    }
-
-    override suspend fun getDairiesFlow() = withContext(Dispatchers.IO) {
-        diariesDao.getDairiesWithEntries().map { dairies ->
-            dairies.map { it.toUIModel() }
         }
     }
 

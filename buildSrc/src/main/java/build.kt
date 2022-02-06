@@ -18,11 +18,12 @@ object build {
 
         // Libraries
         const val kotlin = "1.6.10"
-        const val ktx = "1.6.0"
-        const val appcompat = "1.4.0-alpha03"
+        const val ktx = "1.7.0"
+        const val appcompat = "1.4.0"
         const val hilt = "2.40.5"
-        const val navigation = "2.4.0-alpha08"
-        const val lifecycle = "2.3.1"
+        const val navigation = "2.4.0"
+        const val lifecycle = "2.5.0-alpha01"
+        const val fragment = "1.5.0-alpha01"
         const val coroutines = "1.5.2"
         const val gson = "2.8.8"
 
@@ -92,6 +93,9 @@ object build {
         const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime:${version.lifecycle}"
         const val lifecycleCommon = "androidx.lifecycle:lifecycle-common-java8:${version.lifecycle}"
         const val livedata = "androidx.lifecycle:lifecycle-viewmodel-ktx:${version.lifecycle}"
+
+        //Fragment
+        const val fragment = "androidx.fragment:fragment:${version.fragment}"
 
         // Database
         const val roomRuntime = "androidx.room:room-runtime:${version.room}"

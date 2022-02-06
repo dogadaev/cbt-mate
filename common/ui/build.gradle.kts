@@ -27,6 +27,7 @@ dependencies {
         // api(composeTest)
 
         api(ktx)
+        api(fragment)
         api(appcompat)
 
         api(material)

@@ -4,6 +4,12 @@ plugins {
     }
 }
 
+android {
+    kotlinOptions {
+        freeCompilerArgs = listOf("-Xjvm-default=compatibility")
+    }
+}
+
 dependencies {
     with(build.project) {
         implementation(project(common_entity))

@@ -1,17 +1,14 @@
 package org.dogadaev.presentation.viewmodel
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import org.dogadaev.entity.Diary
 import org.dogadaev.interactor.usecase.DiaryCreationUseCase
 import org.dogadaev.interactor.usecase.HomeUseCase
 import java.lang.System.currentTimeMillis
-import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -24,7 +21,19 @@ class HomeViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            useCase.getDairiesFlow().collect {
+            diaryCreationUseCase.saveDairy(
+                Diary(
+                    "ID,",
+                    "ID,",
+                    "ID,",
+                    currentTimeMillis(),
+                    emptyList(),
+                )
+            )
+        }
+
+        viewModelScope.launch {
+            useCase.diaries.collect {
                 _data.emit(it)
             }
         }
@@ -37,8 +46,6 @@ class HomeViewModel @Inject constructor(
     }
 
     fun insertTestItem(diary: Diary) {
-        viewModelScope.launch {
-            diaryCreationUseCase.saveDairy(diary.copy(id = UUID.randomUUID().toString()))
-        }
+
     }
 }
