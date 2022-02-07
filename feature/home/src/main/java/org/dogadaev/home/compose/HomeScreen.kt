@@ -16,6 +16,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import org.dogadaev.entity.Diary
 import org.dogadaev.presentation.viewmodel.HomeViewModel
 import org.dogadaev.ui.theme.CbtMateTheme
 
@@ -23,20 +24,21 @@ import org.dogadaev.ui.theme.CbtMateTheme
 @Composable
 fun HomeScreen(viewModel: HomeViewModel) {
     CbtMateTheme {
-        viewModel.data.collectAsState().value.let { diaries ->
-            LazyColumn {
-                items(diaries) {
-                    Row(
-                        modifier = Modifier
-                            .padding(16.dp)
-                            .fillMaxWidth()
-                            .clickable {
-                                viewModel.removeTestItem(it)
+        Column {
+            Toolbar(
+                createDiary = {
+                    viewModel.insertTestItem()
+                }
+            )
+            viewModel.data.collectAsState().value.let { diaries ->
+                LazyColumn {
+                    items(diaries) { item ->
+                        DiaryCard(
+                            diary = item,
+                            onCardClick = {
+                                viewModel.removeItem(item)
                             }
-                    ) {
-                        Card {
-                            Text(it.title)
-                        }
+                        )
                     }
                 }
             }
