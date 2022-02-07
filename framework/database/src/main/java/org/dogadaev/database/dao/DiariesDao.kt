@@ -21,14 +21,14 @@ interface DiariesDao {
     fun getDairies(): Flow<List<DiaryDB>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveDairies(vararg diaries: DiaryDB)
+    suspend fun saveDairies(vararg diaries: DiaryDB)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveEntry(vararg entry: DiaryDB.Entry)
+    suspend fun saveEntry(vararg entry: DiaryDB.Entry)
 
     @Delete
-    fun deleteDiary(diary: DiaryDB)
+    suspend fun deleteDiary(diary: DiaryDB)
 
     @Query("DELETE FROM diary_entries WHERE diaryId=:diaryId")
-    fun deleteEntries(diaryId: String)
+    suspend fun deleteEntries(diaryId: String)
 }

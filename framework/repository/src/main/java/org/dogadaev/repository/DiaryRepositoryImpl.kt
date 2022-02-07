@@ -1,40 +1,46 @@
 package org.dogadaev.repository
 
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.mapLatest
-import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.withContext
-import org.dogadaev.repository.converter.toDB
-import org.dogadaev.repository.converter.toUIModel
 import org.dogadaev.database.dao.DiariesDao
+import org.dogadaev.database.entity.DiaryDB
+import org.dogadaev.database.entity.DiaryWithEntries
 import org.dogadaev.entity.Diary
 import org.dogadaev.interactor.repository.DiaryRepository
-import org.dogadaev.interactor.resource.ParametrizedResource
 import org.dogadaev.repository.converter.toCommon
+import org.dogadaev.repository.converter.toDB
+import org.dogadaev.repository.converter.toUIModel
 import org.dogadaev.repository.resource.ParametrizedResourceImpl
+import org.dogadaev.repository.resource.ResourceImpl
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class DiaryRepositoryImpl @Inject constructor(
     private val diariesDao: DiariesDao,
 ) : DiaryRepository {
 
-    override val diaries = diariesDao.dairiesWithEntries
-        .mapLatest { dairies ->
-            dairies.map { it.toUIModel() }
-        }
-
-    override val diaryResource = ParametrizedResourceImpl<Diary, String> { diaryId ->
-        diariesDao.getDairyFlow(diaryId).map {
-            it.toUIModel()
-        }
+    override val diariesResource = ResourceImpl {
+        diariesDao.dairiesWithEntries.flowOn(Dispatchers.IO)
+            .distinctUntilChanged()
+            .mapLatest { dairies ->
+                dairies.map(DiaryWithEntries::toUIModel)
+            }
     }
 
-    override val entryResource = ParametrizedResourceImpl<List<Diary.Entry>, String> { diaryId->
-        diariesDao.getDiaryEntries(diaryId).map { entries ->
-            entries.map { it.toCommon() }
-        }
+    override val diaryResource = ParametrizedResourceImpl<Diary, String> { diaryId ->
+        diariesDao.getDairyFlow(diaryId).flowOn(Dispatchers.IO)
+            .distinctUntilChanged()
+            .mapLatest(DiaryWithEntries::toUIModel)
+    }
+
+    override val entryResource = ParametrizedResourceImpl<List<Diary.Entry>, String> { diaryId ->
+        diariesDao.getDiaryEntries(diaryId).flowOn(Dispatchers.IO)
+            .distinctUntilChanged()
+            .mapLatest { entries ->
+                entries.map(DiaryDB.Entry::toCommon)
+            }
     }
 
     override suspend fun saveDairy(diary: Diary) = withContext(Dispatchers.IO) {

@@ -6,6 +6,7 @@ import androidx.room.TypeConverters
 import org.dogadaev.database.converter.EmotionConverter
 import org.dogadaev.database.dao.DiariesDao
 import org.dogadaev.database.entity.DiaryDB
+import javax.inject.Singleton
 
 @Database(
     entities = [
@@ -19,6 +20,7 @@ import org.dogadaev.database.entity.DiaryDB
         EmotionConverter::class
     ]
 )
+@Singleton
 abstract class ApplicationDatabase : RoomDatabase() {
     abstract fun dairiesDao(): DiariesDao
 }

@@ -3,6 +3,7 @@ package org.dogadaev.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import org.dogadaev.entity.Diary
@@ -17,18 +18,27 @@ class HomeViewModel @Inject constructor(
     private val useCase: HomeUseCase,
     private val diaryCreationUseCase: DiaryCreationUseCase
 ) : ViewModel() {
-    private val _data = MutableStateFlow<List<Diary>>(emptyList())
-    val data = _data.asStateFlow()
+
+    val data = useCase.diaries.stateIn(
+        viewModelScope,
+        SharingStarted.Lazily,
+        initialValue = emptyList()
+    )
 
     init {
-        viewModelScope.launch {
-            useCase.diaries.collect {
-                _data.emit(it)
-            }
-        }
+        println()
+    }
 
+    fun removeItem(diary: Diary) {
+        viewModelScope.launch {
+            useCase.removeDairy(diary)
+        }
+    }
+
+    fun insertTestItem() {
         viewModelScope.launch {
             val uuid = UUID.randomUUID().toString()
+
             diaryCreationUseCase.saveDairy(
                 Diary(
                     id = uuid,
@@ -39,15 +49,5 @@ class HomeViewModel @Inject constructor(
                 )
             )
         }
-    }
-
-    fun removeTestItem(diary: Diary) {
-        viewModelScope.launch {
-            useCase.removeDairy(diary)
-        }
-    }
-
-    fun insertTestItem(diary: Diary) {
-
     }
 }

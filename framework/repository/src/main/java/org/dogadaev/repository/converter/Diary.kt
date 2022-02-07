@@ -4,12 +4,18 @@ import org.dogadaev.database.entity.DiaryDB
 import org.dogadaev.database.entity.DiaryWithEntries
 import org.dogadaev.entity.Diary
 
-fun DiaryWithEntries.toUIModel() = Diary(
-    diary.id,
-    diary.title,
-    diary.description,
-    diary.creationDate,
-    diaryEntries.map { it.toCommon() }
+fun DiaryWithEntries.toUIModel() = diary.toUIModel(
+    entries = diaryEntries.map { it.toCommon() }
+)
+
+fun DiaryDB.toUIModel(
+    entries: List<Diary.Entry> = emptyList()
+) = Diary(
+    id,
+    title,
+    description,
+    creationDate,
+    entries
 )
 
 fun DiaryDB.Entry.toCommon() = Diary.Entry(
