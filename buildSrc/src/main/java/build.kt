@@ -21,7 +21,7 @@ object build {
         const val ktx = "1.7.0"
         const val appcompat = "1.4.0"
         const val hilt = "2.40.5"
-        const val navigation = "2.4.0"
+        const val navigation = "2.4.1"
         const val lifecycle = "2.5.0-alpha01"
         const val fragment = "1.5.0-alpha01"
         const val coroutines = "1.5.2"
@@ -85,6 +85,8 @@ object build {
         const val navigationFragment =
             "androidx.navigation:navigation-fragment-ktx:${version.navigation}"
         const val navigationUI = "androidx.navigation:navigation-ui-ktx:${version.navigation}"
+        const val navigationCompose =
+            "androidx.navigation:navigation-compose:${version.navigation}"
         const val navigationDynamic =
             "androidx.navigation:navigation-dynamic-features-fragment:${version.navigation}"
 

@@ -7,6 +7,7 @@ plugins {
 
 dependencies {
     with(build.deps) {
+        api(navigationCompose)
         api(navigationFragment)
         api(navigationUI)
     }
