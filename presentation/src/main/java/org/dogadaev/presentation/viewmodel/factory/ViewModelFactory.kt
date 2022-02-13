@@ -3,7 +3,6 @@ package org.dogadaev.presentation.viewmodel.factory
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
-import org.dogadaev.entity.ViewModelPayload
 import org.dogadaev.presentation.viewmodel.DiaryViewModel
 
 class ViewModelFactory(

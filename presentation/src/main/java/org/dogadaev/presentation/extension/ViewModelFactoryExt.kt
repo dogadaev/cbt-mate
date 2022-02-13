@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModelLazy
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.viewmodel.CreationExtras
-import org.dogadaev.entity.ViewModelPayload
 import org.dogadaev.presentation.viewmodel.factory.AssistedViewModelFactory
 import org.dogadaev.presentation.viewmodel.factory.ViewModelFactory
 

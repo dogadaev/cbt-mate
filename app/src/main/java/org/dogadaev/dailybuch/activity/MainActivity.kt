@@ -1,26 +1,35 @@
 package org.dogadaev.dailybuch.activity
 
 import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentFactory
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import org.dogadaev.dailybuch.databinding.ActivityMainBinding
-import org.dogadaev.ui.extensions.viewBinding
-import javax.inject.Inject
+import org.dogadaev.home.compose.HomeScreen
+import org.dogadaev.navigation.compose.NavDestination
+import org.dogadaev.ui.theme.CbtMateTheme
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val binding by viewBinding(ActivityMainBinding::inflate)
-
-    @Inject
-    lateinit var fragmentFactory: FragmentFactory
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportFragmentManager.fragmentFactory = fragmentFactory
 
+        setContent {
+            val navController = rememberNavController()
 
-        setContentView(binding.root)
+            CbtMateTheme {
+                NavHost(
+                    navController,
+                    startDestination = NavDestination.Home.route
+                ) {
+                    composable(NavDestination.Home.route) {
+                        HomeScreen()
+                    }
+                }
+            }
+        }
     }
 }

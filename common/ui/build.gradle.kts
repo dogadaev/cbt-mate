@@ -17,6 +17,7 @@ android {
 dependencies {
     with(build.deps) {
         api(compose)
+        api(composeCompiler)
         api(composeTooling)
         api(composeFoundation)
         api(composeMaterial)
@@ -24,6 +25,7 @@ dependencies {
         api(composeActivity)
         api(composeViewModel)
         api(composeLiveData)
+        api(composeHilt)
         // api(composeTest)
 
         api(ktx)

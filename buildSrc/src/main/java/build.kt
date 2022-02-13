@@ -7,7 +7,7 @@ object build {
     }
 
     object version {
-        const val gradle = "7.2.0-alpha02"
+        const val gradle = "7.2.0-beta01"
 
         const val minSdk = 24
         const val targetSdk = 31
@@ -23,13 +23,13 @@ object build {
         const val hilt = "2.40.5"
         const val navigation = "2.4.1"
         const val lifecycle = "2.5.0-alpha01"
-        const val fragment = "1.5.0-alpha01"
+        const val fragment = "1.4.1"
         const val coroutines = "1.5.2"
         const val gson = "2.8.8"
 
         const val compose = "1.1.0-rc03"
 
-        const val material = "1.5.0-alpha03"
+        const val material = "1.5.0"
         const val constraint = "2.0.4"
 
         const val room = "2.4.1"
@@ -65,14 +65,14 @@ object build {
 
         // Jetpack Compose
         const val compose = "androidx.compose.ui:ui:${version.compose}"
+        const val composeCompiler = "androidx.compose.compiler:compiler:${version.compose}"
         const val composeTooling = "androidx.compose.ui:ui-tooling:${version.compose}"
         const val composeFoundation = "androidx.compose.foundation:foundation:${version.compose}"
         const val composeMaterial = "androidx.compose.material:material:${version.compose}"
-        const val composeMaterialIcons =
-            "androidx.compose.material:material-icons-extended:${version.compose}"
-        const val composeActivity = "androidx.activity:activity-compose:1.3.0"
-        const val composeViewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07"
+        const val composeMaterialIcons = "androidx.compose.material:material-icons-extended:${version.compose}"
+        const val composeActivity = "androidx.activity:activity-compose:1.4.0"
         const val composeLiveData = "androidx.compose.runtime:runtime-livedata:${version.compose}"
+        const val composeHilt = "androidx.hilt:hilt-navigation-compose:1.0.0"
         const val composeTest = "androidx.compose.ui:ui-test-junit4:${version.compose}"
 
         // View
@@ -82,19 +82,15 @@ object build {
         // Navigation
         const val navigationSafeArgs =
             "androidx.navigation:navigation-safe-args-gradle-plugin:${version.navigation}"
-        const val navigationFragment =
-            "androidx.navigation:navigation-fragment-ktx:${version.navigation}"
-        const val navigationUI = "androidx.navigation:navigation-ui-ktx:${version.navigation}"
         const val navigationCompose =
             "androidx.navigation:navigation-compose:${version.navigation}"
-        const val navigationDynamic =
-            "androidx.navigation:navigation-dynamic-features-fragment:${version.navigation}"
 
         // Lifecycle
         const val viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${version.lifecycle}"
         const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime:${version.lifecycle}"
         const val lifecycleCommon = "androidx.lifecycle:lifecycle-common-java8:${version.lifecycle}"
         const val livedata = "androidx.lifecycle:lifecycle-viewmodel-ktx:${version.lifecycle}"
+        const val composeViewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:${version.lifecycle}"
 
         //Fragment
         const val fragment = "androidx.fragment:fragment:${version.fragment}"

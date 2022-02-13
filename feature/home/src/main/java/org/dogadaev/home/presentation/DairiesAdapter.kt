@@ -7,8 +7,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.dogadaev.entity.Diary
 import org.dogadaev.home.databinding.ItemDairyLayoutBinding
-import org.dogadaev.navigation.NavigationGraphScreen
-import org.dogadaev.navigation.Navigator
 
 typealias OnItemClickListener = (Diary) -> Unit
 

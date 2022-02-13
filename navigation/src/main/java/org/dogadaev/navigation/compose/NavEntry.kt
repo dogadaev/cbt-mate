@@ -2,13 +2,9 @@ package org.dogadaev.navigation.compose
 
 import androidx.compose.runtime.Composable
 
-sealed class NavEntry(
-    val name: String
+sealed class NavDestination(
+    val route: String
 ) {
-
-    @Composable
-    abstract fun ScreenComposable()
-
-    abstract class HomeDestination: NavEntry("home")
-    abstract class DiaryDestination: NavEntry("diary")
+    object Home : NavDestination(route = "home")
+    object Diary : NavDestination(route = "diary")
 }

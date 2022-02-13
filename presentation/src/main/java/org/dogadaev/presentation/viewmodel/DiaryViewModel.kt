@@ -2,20 +2,14 @@ package org.dogadaev.presentation.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
-import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.dogadaev.entity.Diary
-import org.dogadaev.entity.ViewModelPayload
-import org.dogadaev.interactor.usecase.DiaryUseCase
 import org.dogadaev.interactor.usecase.factory.UseCaseFactory
-import javax.inject.Inject
 
 class DiaryViewModel @AssistedInject constructor(
     @Assisted extras: CreationExtras,

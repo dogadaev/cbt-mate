@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <item name="nav_host" type="id" />
-    <item name="home_nav_graph" type="id" />
-    <item name="diary_nav_graph" type="id" />
-    <item name="diary_creation_form_nav_graph" type="id" />
-</resources>

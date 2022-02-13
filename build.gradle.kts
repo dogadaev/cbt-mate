@@ -45,6 +45,11 @@ subprojects {
             buildFeatures.apply {
                 viewBinding = true
                 buildConfig = false
+                compose = true
+            }
+
+            composeOptions {
+                kotlinCompilerExtensionVersion = build.version.compose
             }
 
             repositories {
@@ -71,8 +76,10 @@ subprojects {
                 add("implementation", build.deps.hilt.android)
                 add("kapt", build.deps.hilt.compiler)
 
-                add("testImplementation", build.deps.junit)
-                add("androidTestImplementation", build.deps.junitExt)
+                add("implementation", build.deps.kotlin)
+
+//                add("testImplementation", build.deps.junit)
+//                add("androidTestImplementation", build.deps.junitExt)
             }
         }
 
@@ -101,6 +108,8 @@ subprojects {
             dependencies {
                 add("implementation", build.deps.hilt.android)
                 add("kapt", build.deps.hilt.compiler)
+
+                add("implementation", build.deps.kotlin)
             }
         }
     }
