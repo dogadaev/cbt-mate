@@ -1,14 +1,12 @@
 package org.dogadaev.home.compose
 
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PostAdd
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import org.dogadaev.home.R
+import org.dogadaev.ui.theme.CbtMateTheme
 
 @Composable
 fun Toolbar(

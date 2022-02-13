@@ -1,10 +1,15 @@
 package org.dogadaev.navigation.compose
 
-import androidx.compose.runtime.Composable
-
 sealed class NavDestination(
-    val route: String
+    val name: String,
+    val argument: String = ""
 ) {
-    object Home : NavDestination(route = "home")
-    object Diary : NavDestination(route = "diary")
+    val route = with (argument) {
+        if(isNotEmpty()) "$name/{$argument}"
+        else name
+    }
+    object Home : NavDestination(name = "home")
+    object Diary : NavDestination(name = "diary", argument = "diaryId") {
+        fun buildDestination(diaryId: String) = "$name/$diaryId"
+    }
 }

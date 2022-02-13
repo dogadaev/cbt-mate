@@ -17,7 +17,8 @@ import org.dogadaev.ui.theme.PaddingDefault
 @Composable
 fun DiaryCard(
     diary: Diary,
-    removeItem: () -> Unit
+    openDiary: () -> Unit,
+    removeItem: () -> Unit,
 ) {
     Row {
         Card(
@@ -25,7 +26,7 @@ fun DiaryCard(
                 .padding(PaddingDefault)
                 .fillMaxWidth()
                 .combinedClickable(
-                    onClick = { },
+                    onClick = openDiary,
                     onLongClick = removeItem
                 )
         ) {
@@ -52,6 +53,7 @@ fun CardPreview() {
             0,
             emptyList()
         ),
+        { },
         { }
     )
 }

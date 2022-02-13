@@ -25,7 +25,10 @@ private val DarkTheme = darkColors(
 )
 
 @Composable
-fun CbtMateTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+fun CbtMateTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit
+) {
     val theme = if (darkTheme) DarkTheme else LightTheme
 
     MaterialTheme(

@@ -1,45 +1,39 @@
 package org.dogadaev.presentation.viewmodel
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.CreationExtras
-import dagger.assisted.Assisted
-import dagger.assisted.AssistedInject
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.dogadaev.entity.Diary
 import org.dogadaev.interactor.usecase.factory.UseCaseFactory
+import javax.inject.Inject
 
-class DiaryViewModel @AssistedInject constructor(
-    @Assisted extras: CreationExtras,
+@HiltViewModel
+class DiaryViewModel @Inject constructor(
+    savedState: SavedStateHandle,
     useCaseFactory: UseCaseFactory,
 ) : ViewModel() {
 
     private val useCase = useCaseFactory.createDiaryUseCase(
-        diaryId = extras[DIARY_ID_EXTRA_KEY]!!
+        diaryId = savedState["diaryId"]!!
     )
 
-    val data = MutableLiveData<Diary>()
-    val title = MutableLiveData<String>()
-
-    init {
-        viewModelScope.launch {
-            useCase.diary.collect {
-                data.postValue(it)
-
-                title.postValue(it.title)
-            }
-        }
-    }
+    val data = useCase.diary.stateIn(
+        viewModelScope,
+        SharingStarted.Lazily,
+        Diary(
+            "", "", "", 0, emptyList()
+        )
+    )
 
     fun insertTestEntry() {
         viewModelScope.launch {
             useCase.insertEntry()
         }
-    }
-
-    companion object {
-        val DIARY_ID_EXTRA_KEY = object : CreationExtras.Key<String> {}
     }
 }
