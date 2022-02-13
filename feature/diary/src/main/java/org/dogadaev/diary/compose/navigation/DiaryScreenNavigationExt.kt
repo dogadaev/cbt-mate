@@ -15,6 +15,10 @@ fun NavGraphBuilder.addDiaryScreen(
         route = NavDestination.Diary.route,
         arguments = listOf(navArgument(NavDestination.Diary.argument) { type = NavType.StringType })
     ) {
-        DiaryScreen()
+        DiaryScreen(
+            navigateBack = {
+                navController.popBackStack()
+            }
+        )
     }
 }

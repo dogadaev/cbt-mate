@@ -10,18 +10,19 @@ private val LightTheme = lightColors(
     primary = Purple500,
     primaryVariant = Purple700,
     onPrimary = White,
-    secondary = Teal200,
-    secondaryVariant = Teal700,
-    onSecondary = Black
+    secondary = Purple500,
+    secondaryVariant = Purple700,
+    onSecondary = White,
+    error = Red800
 )
 
 private val DarkTheme = darkColors(
     primary = Purple200,
-    primaryVariant = Purple700,
+    primaryVariant = Purple500,
     onPrimary = Black,
-    secondary = Teal200,
-    secondaryVariant = Teal700,
-    onSecondary = Black
+    secondary = Purple200,
+    onSecondary = Black,
+    error = Red800
 )
 
 @Composable

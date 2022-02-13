@@ -20,7 +20,7 @@ fun Toolbar(
         },
         actions = {
             IconButton(onClick = createDiary) {
-                Icon(Icons.Filled.PostAdd, contentDescription = "Localized description")
+                Icon(Icons.Filled.PostAdd, contentDescription = "Create new diary")
             }
         }
     )
