@@ -27,7 +27,7 @@ object build {
         const val coroutines = "1.5.2"
         const val gson = "2.8.8"
 
-        const val compose = "1.1.0-rc03"
+        const val compose = "1.1.0"
 
         const val material = "1.5.0"
         const val constraint = "2.0.4"
@@ -119,7 +119,6 @@ object build {
         const val junitExt = "androidx.test.ext:junit:${version.junitExt}"
         const val espresso = "androidx.test.espresso:espresso-core:${version.espresso}"
     }
-
 
     object project {
         const val app = ":app"

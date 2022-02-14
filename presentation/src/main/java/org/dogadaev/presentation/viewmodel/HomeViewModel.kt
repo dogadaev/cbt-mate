@@ -3,7 +3,6 @@ package org.dogadaev.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import org.dogadaev.entity.Diary
@@ -35,14 +34,16 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun insertTestItem() {
+    fun insertTestItem(
+        title: String
+    ) {
         viewModelScope.launch {
             val uuid = UUID.randomUUID().toString()
 
             diaryCreationUseCase.saveDairy(
                 Diary(
                     id = uuid,
-                    title = uuid,
+                    title = title,
                     description = uuid,
                     creationDate = currentTimeMillis(),
                     entries = emptyList(),
