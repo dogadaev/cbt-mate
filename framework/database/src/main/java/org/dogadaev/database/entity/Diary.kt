@@ -18,7 +18,8 @@ data class DiaryDB(
     @PrimaryKey val id: String,
     val title: String,
     val description: String,
-    val creationDate: Long,
+    val creationTimestamp: Long,
+    val lastModifiedTimestamp: Long,
 ) {
 
     @Entity(tableName = "diary_entries")

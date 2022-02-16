@@ -42,7 +42,8 @@ class HomeViewModel @Inject constructor(
                     id = uuid,
                     title = title,
                     description = description,
-                    creationDate = currentTimeMillis(),
+                    creationTimestamp = currentTimeMillis(),
+                    lastModifiedTimestamp = 0,
                     entries = emptyList(),
                 )
             )
