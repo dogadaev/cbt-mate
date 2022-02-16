@@ -1,17 +1,22 @@
 package org.dogadaev.ui.component
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.Text
-import androidx.compose.material.TextButton
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material.icons.filled.Description
+import androidx.compose.material.icons.filled.Title
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import org.dogadaev.ui.theme.CbtMateTheme
 
 @Composable
 fun CbtDialog(
@@ -21,6 +26,7 @@ fun CbtDialog(
     titleText: String,
     positiveText: String,
     negativeText: String,
+    positiveButtonEnabled: Boolean,
     content: @Composable () -> Unit
 ) {
     CustomDialog(
@@ -37,7 +43,7 @@ fun CbtDialog(
             text = titleText
         )
 
-        Row(
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
@@ -61,7 +67,8 @@ fun CbtDialog(
                 onClick = {
                     onActionRequest()
                     onDismissRequest()
-                }
+                },
+                enabled = positiveButtonEnabled
             ) {
                 Text(
                     text = positiveText.uppercase()
@@ -81,13 +88,17 @@ fun CustomDialog(
         onDismissRequest = onDismissRequest,
         properties = properties,
     ) {
-        Card(
+        Surface(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(IntrinsicSize.Min),
             shape = RoundedCornerShape(16.dp),
             elevation = 8.dp,
         ) {
             Column(
                 modifier = Modifier
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .wrapContentHeight(),
                 content = content
             )
         }

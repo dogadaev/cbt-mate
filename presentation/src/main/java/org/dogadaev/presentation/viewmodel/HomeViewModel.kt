@@ -24,10 +24,6 @@ class HomeViewModel @Inject constructor(
         initialValue = emptyList()
     )
 
-    init {
-        println()
-    }
-
     fun removeItem(diary: Diary) {
         viewModelScope.launch {
             useCase.removeDairy(diary)
@@ -35,7 +31,8 @@ class HomeViewModel @Inject constructor(
     }
 
     fun insertTestItem(
-        title: String
+        title: String,
+        description: String
     ) {
         viewModelScope.launch {
             val uuid = UUID.randomUUID().toString()
@@ -44,7 +41,7 @@ class HomeViewModel @Inject constructor(
                 Diary(
                     id = uuid,
                     title = title,
-                    description = uuid,
+                    description = description,
                     creationDate = currentTimeMillis(),
                     entries = emptyList(),
                 )
