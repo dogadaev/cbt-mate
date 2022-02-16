@@ -27,6 +27,7 @@ class DiaryCreationFormViewModel @Inject constructor(
                 model.name,
                 model.description,
                 System.currentTimeMillis(),
+                System.currentTimeMillis(),
                 emptyList()
             )
             useCase.saveDairy(testDairy)

@@ -24,10 +24,6 @@ class HomeViewModel @Inject constructor(
         initialValue = emptyList()
     )
 
-    init {
-        println()
-    }
-
     fun removeItem(diary: Diary) {
         viewModelScope.launch {
             useCase.removeDairy(diary)
@@ -46,7 +42,8 @@ class HomeViewModel @Inject constructor(
                     id = uuid,
                     title = title,
                     description = description,
-                    creationDate = currentTimeMillis(),
+                    creationTimestamp = currentTimeMillis(),
+                    lastModifiedTimestamp = 0,
                     entries = emptyList(),
                 )
             )

@@ -1,8 +1,6 @@
 package org.dogadaev.home.compose
 
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
@@ -35,7 +33,15 @@ fun HomeScreen(
         }
     ) {
         viewModel.data.collectAsState().value.let { diaries ->
-            LazyColumn {
+            LazyColumn(
+                modifier = Modifier.
+                    fillMaxHeight(),
+                verticalArrangement = Arrangement.spacedBy(16.dp),
+                contentPadding = PaddingValues(
+                    horizontal = 16.dp,
+                    vertical = 16.dp
+                )
+            ) {
                 items(diaries) { item ->
                     DiaryCard(
                         diary = item,

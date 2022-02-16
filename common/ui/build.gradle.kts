@@ -15,6 +15,10 @@ android {
 }
 
 dependencies {
+    with(build.project) {
+        implementation(project(common_entity))
+    }
+
     with(build.deps) {
         api(compose)
         api(composeCompiler)

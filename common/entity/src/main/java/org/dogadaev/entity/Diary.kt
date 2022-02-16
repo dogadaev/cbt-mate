@@ -4,7 +4,8 @@ data class Diary(
     val id: String,
     val title: String,
     val description: String,
-    val creationDate: Long,
+    val creationTimestamp: Long,
+    val lastModifiedTimestamp: Long,
     val entries: List<Entry>,
 ) {
 

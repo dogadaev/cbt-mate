@@ -46,6 +46,7 @@ fun CbtDialog(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
+                .weight(1f)
                 .padding(horizontal = 16.dp)
         ) { content() }
 

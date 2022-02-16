@@ -14,7 +14,8 @@ fun DiaryDB.toUIModel(
     id,
     title,
     description,
-    creationDate,
+    creationTimestamp,
+    lastModifiedTimestamp,
     entries
 )
 
@@ -51,7 +52,8 @@ fun Diary.toDB() = DiaryDB(
     id,
     title,
     description,
-    creationDate,
+    creationTimestamp,
+    lastModifiedTimestamp
 )
 
 fun Diary.Entry.toDB() = DiaryDB.Entry(

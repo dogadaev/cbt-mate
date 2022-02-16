@@ -97,6 +97,7 @@ subprojects {
             }
 
             defaultConfig {
+                minSdk = build.version.minSdk
                 compileSdk = build.version.compileSdk
             }
 

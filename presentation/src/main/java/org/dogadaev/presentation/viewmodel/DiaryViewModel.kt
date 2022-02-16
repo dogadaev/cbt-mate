@@ -27,7 +27,7 @@ class DiaryViewModel @Inject constructor(
         viewModelScope,
         SharingStarted.Lazily,
         Diary(
-            "", "", "", 0, emptyList()
+            "", "", "", 0, 0, emptyList()
         )
     )
 
