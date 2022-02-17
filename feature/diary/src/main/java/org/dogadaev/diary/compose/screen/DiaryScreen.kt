@@ -1,5 +1,8 @@
 package org.dogadaev.diary.compose.screen
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CutCornerShape
@@ -10,6 +13,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PostAdd
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import org.dogadaev.diary.compose.component.EntryCard
@@ -31,7 +35,7 @@ fun DiaryScreen(
             }, floatingActionButton = {
                 FloatingActionButton(
                     onClick = {
-                              viewModel.insertTestEntry()
+                        viewModel.insertTestEntry()
                     },
                     shape = CutCornerShape(8.dp),
                 ) {
@@ -42,14 +46,20 @@ fun DiaryScreen(
                 }
             }
         ) {
-           LazyColumn {
-               items(diary.entries) { entry->
-                   EntryCard(
-                       entry,
-                       editEntry = {  }
-                   )
-               }
-           }
+            LazyColumn(
+                modifier = Modifier.fillMaxHeight(),
+                verticalArrangement = Arrangement.spacedBy(16.dp),
+                contentPadding = PaddingValues(
+                    vertical = 16.dp,
+                )
+            ) {
+                items(diary.entries) { entry ->
+                    EntryCard(
+                        entry,
+                        editEntry = { }
+                    )
+                }
+            }
         }
     }
 }

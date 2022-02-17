@@ -17,9 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.dogadaev.entity.Diary
-import org.dogadaev.ui.extensions.capitalize
-import org.dogadaev.ui.extensions.lastModifiedDate
-import org.dogadaev.ui.extensions.lastModifiedTime
+import org.dogadaev.ui.extensions.*
 import org.dogadaev.ui.theme.PaddingDefault
 import org.dogadaev.ui.theme.PaddingSmall
 import java.lang.System.currentTimeMillis
@@ -75,7 +73,7 @@ fun DiaryCard(
                         top = PaddingSmall
                     )
                     .fillMaxWidth(),
-                text = "Last modified at ${diary.lastModifiedTime} on ${diary.lastModifiedDate}",
+                text = "Last modified at ${diary.lastModifiedTimestamp.formattedTime} on ${diary.lastModifiedTimestamp.formattedDate}",
                 fontWeight = FontWeight.Light,
                 fontStyle = FontStyle.Italic,
                 fontSize = 12.sp,
