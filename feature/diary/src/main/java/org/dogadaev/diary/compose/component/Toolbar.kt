@@ -5,6 +5,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun Toolbar(
@@ -23,6 +24,8 @@ fun Toolbar(
             IconButton(onClick = navigateBack) {
                 Icon(Icons.Filled.ArrowBack, contentDescription = "Navigate back")
             }
-        }
+        },
+        backgroundColor = MaterialTheme.colors.background,
+        elevation = 0.dp
     )
 }
