@@ -5,8 +5,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PostAdd
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import org.dogadaev.home.R
-import org.dogadaev.ui.theme.CbtMateTheme
 
 @Composable
 fun Toolbar(
@@ -22,6 +22,8 @@ fun Toolbar(
             IconButton(onClick = createDiary) {
                 Icon(Icons.Filled.PostAdd, contentDescription = "Create new diary")
             }
-        }
+        },
+        backgroundColor = MaterialTheme.colors.background,
+        elevation = 0.dp
     )
 }
